@@ -1,0 +1,89 @@
+<div class="middle">
+    <div class="container">
+        <div class="_form">
+            <btn-green text='Add new group' (clicked)="modal.btnShowModal()"/>
+            <app-modal #modal style="display: flex;">
+                <form>
+                    <h3>Name</h3>
+                    <br>
+                    <input type="text" #groupName>
+                </form>
+                <br>
+                <btn-green text='Add new group' (clicked)="this.addGroup(groupName,modal)"/>
+            </app-modal>
+            <div class="group-box">
+                @for (group of groups; track $index) {
+                    <div class="item" style="font-size:large" >
+                       <ul [ngClass]="{'_selected': selectedGroup == group}" (click)="selectGroup(group)">
+                        <p>{{group.name}}</p>
+                       </ul>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="_form">
+            <button class="green-button" (click)="btnShowModalTask()" [disabled]="!selectedGroup">Add task</button>
+            
+            @if (showModal) {  <!-- MODAL -->
+                <div class="modal-overlay"> 
+                    <div class="modal-content">
+                        <h3>Task Name</h3>
+                        <button class="close-btn red-button" (click)="btnShowModalTask()">Close</button>
+                        <input type="text" placeholder="type task name" [(ngModel)]="taskModal.name">
+                        <br>
+                        <h3>Task Description</h3>
+                        <textarea cols="40" rows="5" [(ngModel)]="taskModal.description"></textarea>
+                        <br>
+                        <button class="green-button" (click)="addTask()">Save Task</button>
+                      </div>
+                      <!-- <button class="close-btn red-button" (click)="btnShowModal()">Close</button> -->
+                </div>
+            }
+    
+        </div>
+        <div class="item-box">
+        @if(selectedGroup) {
+            @for (task of tasks; track $index) {
+                @if(task.group.id == (selectedGroup ? selectedGroup.id : 0) ) {
+                    <div class="item">
+                        <ul [ngClass]="{'_selected': selectedTask == task,'_done': task.done}" (click)="selectTask(task)">
+                           <p>{{task.name}}</p>
+                        </ul>
+                    </div>
+                }
+            }
+        }@else { <h2 class="warning">Select a group to view or create tasks</h2> }
+        </div>
+    </div>
+</div>
+
+
+<footer class="g-footer" >
+
+    @if(selectedTask) {
+        <div class="info">
+            <div class="info-left">
+                <h3 style="color: rgb(231, 139, 96);"> {{selectedTask.name}}</h3>
+                <p>  Description: <br> <span>{{selectedTask.description}}</span></p>
+                
+            </div>
+            <div class="editor">
+                <button class="green-button" (click)="setDoneUndone()">
+                    <h2 [ngStyle]="{'color': selectedTask.done ? 'red':'green'}">Set {{ selectedTask.done ? 'Undone':'Done'}}</h2>
+                </button>
+
+                <button class="red-button" (click)="deleteTask()">Delete task</button>
+            </div>
+            <fa-icon [icon]="icons.gears"/>
+        </div>
+
+        
+
+    }@else {
+        <h1>There is no task selected </h1>
+    }
+    
+</footer>

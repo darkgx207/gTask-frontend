@@ -1,0 +1,16 @@
+.green-button {
+    background-color: rgb(31, 211, 31);
+    padding: 3px;
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    border-style: none;
+    &:hover { filter: brightness(1.2) }
+    &:active { background-color: rgb(130, 255, 113); }
+    padding: 6px;
+    border-radius: 5px;
+    &:disabled {
+        background-color: #616161;
+        &:hover { filter: brightness(1) }
+    }
+    user-select: none;
+}

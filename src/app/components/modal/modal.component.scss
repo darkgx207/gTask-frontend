@@ -1,0 +1,54 @@
+.modal-overlay {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.466);
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    h3 {user-select: none; }
+    textarea {
+        resize: none; 
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 8px;
+    }
+    backdrop-filter: blur(1px);
+
+}
+
+.red-button {
+    background-color: rgb(212, 21, 21);
+    padding: 3px;
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    border-style: none;
+    &:hover { filter: brightness(1.2) }
+    &:active { background-color: rgb(228, 72, 72); }
+    padding: 6px;
+    border-radius: 5px;
+}
+
+.modal-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 23rem;
+    // height: 38%;
+    background-color: #fff;
+    padding: 20px;
+    z-index: 1001; /* Ensure it's above overlay */
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    .close-btn {
+        padding: 10px 15px;
+        width: 100px;
+        position: absolute;
+        left: calc(100% - 120px);
+        
+        
+    }
+  }

@@ -1,0 +1,8 @@
+<div class="modal-overlay" [style]="{'display': show ? 'flex':'none'}"> 
+    <div class="modal-content">
+        <ng-content />
+        <br>
+        <button class="close-btn red-button" (click)="btnShowModal()">Close</button>
+      </div>
+      <!-- <button class="close-btn red-button" (click)="btnShowModal()">Close</button> -->
+</div>
