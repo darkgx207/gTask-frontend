@@ -1,27 +1,14 @@
-# Painel
+# gTask
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.0.
+Esta é uma aplicação feita para compor os projetos do meu portifolio. 
+gTask é um registrador de tarefas capaz de armazenar tarefas registradas a um grupo especifico.
 
-## Development server
+A aplicação foi desenvolvida usando Angular 17
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Como testar a aplicação ?
 
-## Code scaffolding
+Para testar a aplicação basta usar o comando `ng serve` na pasta raiz do projeto. Acesse em seu navegador a url `http://localhost:4200/` e a aplicação estará disponivel no navegador.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Atenção
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Esta aplicação necessita do servidor backend que se encontra no repositorio `https://github.com/darkgx207/gTask-backend`
